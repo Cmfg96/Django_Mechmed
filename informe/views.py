@@ -19,5 +19,28 @@ def contacto(request):
 
 def login(request):
 
-    return render(request,'informe/inicio_sesion.html')
+    return render(request,'informe/login.html')
 
+def recuperar_contra(request):
+
+    return render(request,'informe/recuperar_contra.html')
+
+def seleccion(request):
+
+    return render(request,'informe/seleccion.html')
+
+def informe_tecnico(request):
+
+    return render(request,'informe/informe_tecnico.html')
+
+def modificar_informe(request):
+
+    return render(request,'informe/modificar_informe.html')
+
+def buscar_informe(request):
+
+    return render(request,'informe/buscar_informe.html')
+
+def formularioPres(request):
+
+    return render(request,'informe/formularioPres.html')

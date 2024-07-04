@@ -1,5 +1,5 @@
-body {
-    background-image: url(./imagenes/fondoverde.jpg);
+.body {
+    background-image: url('../img/fondoverde.jpg');
     background-size: cover; 
     background-position: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

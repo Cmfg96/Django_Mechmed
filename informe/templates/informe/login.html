@@ -43,7 +43,7 @@
                     <label for="check"> Recordarme</label>
                 </div>
                 <div class="right">
-                    <label><a href="./recuperar_contra.html">Recuperar contraseña</a></label>
+                    <label><a href="{% url 'recuperar_contra' %}">Recuperar contraseña</a></label>
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
 
 
 
-    <script src="funciones.js"></script>
+    <script src="{% static 'informe/jsfunciones.js' %}"></script>
 
     <!--funciones-->
     <script>
@@ -61,7 +61,7 @@
 
             if (email === 'mecanico@mechmed.cl' && password === '1234') {
                 alert('Inicio de sesión exitoso');
-                window.location.href = 'seleccion.html';
+                window.location.href = "{% url 'seleccion' %}";
             } else {
                 alert('Credenciales incorrectas. Por favor, inténtalo de nuevo.');
             }
