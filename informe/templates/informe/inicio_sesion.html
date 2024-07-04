@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
-    <script src="./js/bootstrap.min.js" ></script>
-    <script src="funciones.js"></script>
-    <link rel="stylesheet" href="estilos.css">
-    <link rel="stylesheet" href="styles.css">
+    <link href="{% static 'informe/css/bootstrap.min.css' %}" rel="stylesheet">
+    <script src="{% static 'informe/js/bootstrap.min.js' %}" ></script>
+    <script src="{% static 'informe/js/funciones.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'informe/css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'informe/css/styles.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>

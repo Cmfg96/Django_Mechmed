@@ -8,3 +8,16 @@ def index(request):
 def servicios(request):
 
     return render(request,'informe/servicios.html')
+
+def nosotros(request):
+
+    return render(request,'informe/nosotros.html')
+
+def contacto(request):
+
+    return render(request,'informe/contacto.html')
+
+def login(request):
+
+    return render(request,'informe/inicio_sesion.html')
+

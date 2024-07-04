@@ -30,14 +30,14 @@
               <a class="nav-link"  href="{% url 'servicios' %}">SERVICIOS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./nosotros.html">NOSOTROS</a>
+              <a class="nav-link" href="{% url 'nosotros' %}">NOSOTROS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./contacto.html">¿TIENES DUDAS?</a>
+              <a class="nav-link" href="{% url 'contacto' %}">¿TIENES DUDAS?</a>
             </li></ul>
             <!--inicio de sesion-->
             <form id="loginForm">
-        <a href="./login.html"><button class="btn btn-primary ms-2" type="button" >Iniciar Sesión</button></a>
+        <a href="{% url 'login' %}"><button class="btn btn-primary ms-2" type="button" >Iniciar Sesión</button></a>
           </form>
           <!--fin inicio sesion-->
         </div>

@@ -14,26 +14,26 @@
 
     <body class="bg-secondary-subtle">
       <!--barra de navegacion-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="menu">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'index' %}"  id="colorletras" onmouseover="cambiarColorTexto()" onmouseout="restaurarColorTexto()"><span>MechMed</span></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-          <li class="nav-item">
-            <a class="nav-link"  href="{% url 'servicios' %}">SERVICIOS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./nosotros.html">NOSOTROS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./contacto.html">¿TIENES DUDAS?</a>
-          </li></ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="menu">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'index' %}"  id="colorletras" onmouseover="cambiarColorTexto()" onmouseout="restaurarColorTexto()"><span>MechMed</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+            <li class="nav-item">
+              <a class="nav-link"  href="{% url 'servicios' %}">SERVICIOS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'nosotros' %}">NOSOTROS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contacto' %}">¿TIENES DUDAS?</a>
+            </li></ul>
           <!--inicio de sesion-->
           <form id="loginForm">
-            <a href="./login.html"><button class="btn btn-primary ms-2" type="button" >Iniciar Sesión</button></a>
+            <a href="{% url 'login' %}"><button class="btn btn-primary ms-2" type="button" >Iniciar Sesión</button></a>
               </form>
         <!--fin inicio sesion-->
       </div>
