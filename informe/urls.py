@@ -1,16 +1,21 @@
-from django.urls import path
-from .views import index, servicios, nosotros, contacto, login, recuperar_contra, seleccion, informe_tecnico, modificar_informe, buscar_informe, formularioPres
+from django.urls import path, include
+from . import views
 
 urlpatterns = [
-    path('', index, name='index'),
-    path('servicios/', servicios, name='servicios'),
-    path('nosotros/', nosotros, name='nosotros'),
-    path('contacto/', contacto, name='contacto'),
-    path('login/', login, name='login'),
-    path('recuperar_contra/', recuperar_contra, name='recuperar_contra'),
-    path('seleccion/', seleccion, name='seleccion'),
-    path('informe_tecnico/', informe_tecnico, name='informe_tecnico'),
-    path('modificar_informe/', modificar_informe, name='modificar_informe'),
-    path('buscar_informe/', buscar_informe, name='buscar_informe'),
-    path('formularioPres/', formularioPres, name='formularioPres'),
+    path('', views.portada, name='portada'),
+    path('servicios/', views.servicios, name='servicios'),
+    path('nosotros/', views.nosotros, name='nosotros'),
+    path('contacto/', views.contacto, name='contacto'),
+    path('formularioPres/', views.formulario_presupuesto, name='formulario_presupuesto'),
+    path('buscar_informe/', views.buscar_informe, name='buscar_informe'),
+    path('menu', views.index, name='index'),
+    path('informes/', views.lista_informes, name='lista_informes'),
+    path('informes/crear/', views.crear_informe, name='crear_informe'),
+    path('informes/visualizar/<int:id_inf_tec>/', views.visualizar_informe, name='visualizar_informe'),
+    path('informes/editar/<int:id_inf_tec>/', views.editar_informe, name='editar_informe'),
+    path('informes/eliminar/<int:id_inf_tec>/', views.eliminar_informe, name='eliminar_informe'),
+    path('usuarios/', views.usuarios, name='usuarios'),
+    path('presupuestos/', views.presupuestos, name='presupuestos'),
+
+    path("accounts/", include("django.contrib.auth.urls")),
 ]
