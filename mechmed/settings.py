@@ -68,9 +68,10 @@ TEMPLATES = [
     },
 ]
 
+LOGIN_URL = 'login' #este es cuando colocan la ruta directamente 
+LOGIN_REDIRECT_URL = "index" #redireccion al iniciar sesion
+LOGOUT_REDIRECT_URL = "portada" #redireaccion al cerrar sesion
 
-LOGIN_REDIRECT_URL = "index"
-LOGOUT_REDIRECT_URL = "portada"
 
 WSGI_APPLICATION = 'mechmed.wsgi.application'
 

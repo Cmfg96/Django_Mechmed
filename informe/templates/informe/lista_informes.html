@@ -13,7 +13,7 @@
         <ol>
             {% for informe in informes %}
                 <li>
-                    Cliente: {{ informe.cliente }} | Mecánico: {{ informe.mecanico }} | Orden de Servicio: {{ informe.orden_servicio }}<br>
+                        Orden de Servicio: {{ informe.orden_servicio }}<br>
                     <a href="{% url 'visualizar_informe' informe.id_inf_tec %}">Visualizar</a>
                     <a href="{% url 'editar_informe' informe.id_inf_tec %}">Editar</a>
                     <a href="{% url 'eliminar_informe' informe.id_inf_tec %}">Eliminar</a>

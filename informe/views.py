@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Informe
-from .forms import InformeForm
+from .models import Informe, Cliente, Mecanico, Cargo, Presupuesto, Solicitud
+from .forms import InformeForm, ClienteForm, MecanicoForm, CargoForm, PresupuestoForm, SolicitudForm
 
 from django.shortcuts import render
 
@@ -19,9 +19,6 @@ def contacto(request):
 
 def login_view(request):
     return render(request, 'informe/login.html')
-
-def formulario_presupuesto(request):
-    return render(request, 'informe/formularioPres.html')
 
 def buscar_informe(request):
     return render(request, 'informe/buscar_informe.html')
@@ -41,10 +38,6 @@ def informes(request):
 @login_required 
 def usuarios(request):
     return render(request, 'informe/usuarios.html')
-
-@login_required 
-def presupuestos(request):
-    return render(request, 'informe/presupuestos.html')
 
 @login_required 
 def crear_informe(request):
@@ -85,3 +78,170 @@ def visualizar_informe(request, id_inf_tec):
     informe = get_object_or_404(Informe, id_inf_tec=id_inf_tec)
     return render(request, 'informe/visualizar_informe.html', {'informe': informe})
 
+#clientes
+@login_required 
+def crear_cliente(request):
+    if request.method == 'POST':
+        form = ClienteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_clientes')
+    else:
+        form = ClienteForm()
+    return render(request, 'informe/crear_cliente.html', {'form': form})
+
+@login_required 
+def editar_cliente(request, id_cliente):
+    cliente = get_object_or_404(Cliente, id_cliente=id_cliente)
+    if request.method == 'POST':
+        form = ClienteForm(request.POST, instance=cliente)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_clientes')
+    else:
+        form = ClienteForm(instance=cliente)
+    return render(request, 'informe/editar_cliente.html', {'form': form})
+    
+@login_required
+def eliminar_cliente(request, id_cliente):
+    cliente = get_object_or_404(Cliente, id_icliente=id_cliente)
+    cliente.delete()
+    return redirect('lista_clientes')  
+    
+@login_required
+def lista_clientes(request):
+    clientes = Cliente.objects.all()
+    return render(request, 'informe/lista_clientes.html', {'clientes': clientes})
+#mecanicos
+@login_required 
+def crear_mecanico(request):
+    if request.method == 'POST':
+        form = MecanicoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_mecanicos')
+    else:
+        form = MecanicoForm()
+    return render(request, 'informe/crear_mecanico.html', {'form': form})
+
+@login_required 
+def editar_mecanico(request, id_mecanico):
+    mecanico = get_object_or_404(Cliente, id_mecanico=id_mecanico)
+    if request.method == 'POST':
+        form = MecanicoForm(request.POST, instance=mecanico)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_mecanicos')
+    else:
+        form = MecanicoForm(instance=mecanico)
+    return render(request, 'informe/editar_mecanico.html', {'form': form})
+    
+@login_required
+def eliminar_mecanico(request, id_mecanico):
+    mecanico = get_object_or_404(Mecanico, id_mecanico=id_mecanico)
+    mecanico.delete()
+    return redirect('lista_mecanicos')  
+    
+@login_required
+def lista_mecanicos(request):
+    mecanicos = Mecanico.objects.all()
+    return render(request, 'informe/lista_mecanicos.html', {'mecanicos': mecanicos})
+#cargos
+@login_required 
+def crear_cargo(request):
+    if request.method == 'POST':
+        form = CargoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_cargos')
+    else:
+        form = CargoForm()
+    return render(request, 'informe/crear_cargo.html', {'form': form})
+
+@login_required 
+def editar_cargo(request, id_cargo):
+    cargo = get_object_or_404(Cargo, id_cargo=id_cargo)
+    if request.method == 'POST':
+        form = CargoForm(request.POST, instance=cargo)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_cargos')
+    else:
+        form = CargoForm(instance=cargo)
+    return render(request, 'informe/editar_cargo.html', {'form': form})
+    
+@login_required
+def eliminar_cargo(request, id_cargo):
+    cargo = get_object_or_404(Cargo, id_cargo=id_cargo)
+    cargo.delete()
+    return redirect('lista_cargos')  
+    
+@login_required
+def lista_cargos(request):
+    cargos = Cargo.objects.all()
+    return render(request, 'informe/lista_cargos.html', {'cargos': cargos})
+
+@login_required
+def lista_presupuestos(request):
+    presupuestos = Presupuesto.objects.all()
+    return render(request, 'informe/lista_presupuestos.html', {'presupuestos': presupuestos})
+
+@login_required
+def crear_presupuesto(request):
+    if request.method == 'POST':
+        form = PresupuestoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_presupuestos')
+    else:
+        form = PresupuestoForm()
+    return render(request, 'informe/crear_presupuesto.html', {'form': form})
+
+@login_required
+def editar_presupuesto(request, pk):
+    presupuesto = get_object_or_404(Presupuesto, pk=pk)
+    if request.method == 'POST':
+        form = PresupuestoForm(request.POST, request.FILES, instance=presupuesto)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_presupuestos')
+    else:
+        form = PresupuestoForm(instance=presupuesto)
+    return render(request, 'informe/editar_presupuesto.html', {'form': form})
+
+@login_required
+def eliminar_presupuesto(request, pk):
+    presupuesto = get_object_or_404(Presupuesto, pk=pk)
+    if request.method == 'POST':
+        presupuesto.delete()
+        return redirect('lista_presupuestos')
+    return render(request, 'informe/eliminar_presupuesto.html', {'presupuesto': presupuesto})
+
+@login_required
+def ver_presupuesto(request, pk):
+    presupuesto = get_object_or_404(Presupuesto, pk=pk)
+    return render(request, 'informe/ver_presupuesto.html', {'presupuesto': presupuesto})
+
+
+def crear_solicitud(request):
+    if request.method == 'POST':
+        form = SolicitudForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('portada')  
+    else:
+        form = SolicitudForm()
+    return render(request, 'informe/solicitud_form.html', {'form': form})
+
+@login_required
+def lista_solicitudes(request):
+    solicitudes = Solicitud.objects.all()
+    return render(request, 'informe/lista_solicitudes.html', {'solicitudes': solicitudes})
+
+@login_required
+def eliminar_solicitud(request, solicitud_id):
+    solicitud = get_object_or_404(Solicitud, id_solicitud=solicitud_id)
+    if request.method == 'POST':
+        solicitud.delete()
+        return redirect('lista_solicitudes')
+    return render(request, 'informe/confirmar_eliminar.html', {'solicitud': solicitud})
