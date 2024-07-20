@@ -26,13 +26,16 @@
     <div class="container mt-5">
         <h1 class="text-center">Detalles del Informe</h1>
         <div class="details">
-            <p><strong>Cliente:</strong> {{ informe.cliente }}</p>
-            <p><strong>Mecánico:</strong> {{ informe.mecanico }}</p>
+            <p><strong>ID Informe</strong> {{ informe.id_inf_tec }}</p>
+            <p><strong>Cliente:</strong> {{ informe.id_cliente }}</p>
+            <p><strong>Mecánico:</strong> {{ informe.id_mecanico }}</p>
             <p><strong>Orden de Servicio:</strong> {{ informe.orden_servicio }}</p>
-            <p><strong>Descripción:</strong> {{ informe.descripcion }}</p>
-            <p><strong>Fotos:</strong> {{ informe.fotos }}</p>
-            <p><strong>Videos:</strong> {{ informe.videos }}</p>
-            <p><strong>Estados:</strong> {{ informe.estados }}</p>
+            <p><strong>Trabajo Solicitado:</strong> {{ informe.trabajo_solicitado }}</p>
+            <p><strong>Trabajo Realizado:</strong> {{ informe.trabajos_realizados }}</p>
+            <p><strong>Evaluación:</strong> {{ informe.evaluacion }}</p>
+            <p><strong>Fotos:</strong> {{ informe.enlace_fotos }}</p>
+            <p><strong>Videos:</strong> {{ informe.enlace_videos }}</p>
+            <p><strong>Conclusión:</strong> {{ informe.conclusion }}</p>
             <p><strong>Fecha:</strong> {{ informe.fecha }}</p>
         </div>
         <a href="{% url 'lista_informes' %}" class="btn btn-secondary mt-3">Regresar a la Lista</a>
